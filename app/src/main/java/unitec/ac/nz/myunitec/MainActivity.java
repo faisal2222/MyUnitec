@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private TextView txtWelcome;
     private Button btnLogout;
     private Button btnProgramme;
+    private Button btnEnroll;
+    private Button btnTimetable;
     private String firstName;
     private String lastName;
     private String username;
@@ -28,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         btnLogout.setOnClickListener(this);
         btnProgramme = (Button) findViewById(R.id.btnProgramme);
         btnProgramme.setOnClickListener(this);
+        btnEnroll = (Button) findViewById(R.id.btnEnroll);
+        btnEnroll.setOnClickListener(this);
+        btnTimetable = (Button) findViewById(R.id.btnTimetable);
+        btnTimetable.setOnClickListener(this);
         Intent intent = getIntent();
         firstName = intent.getStringExtra("firstName");
         lastName = intent.getStringExtra("lastName");

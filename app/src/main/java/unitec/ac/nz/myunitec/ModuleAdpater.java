@@ -29,14 +29,12 @@ public class ModuleAdpater extends ArrayAdapter<Module> {
         TextView txtModuleName = (TextView) convertView.findViewById(R.id.txtModuleName);
         TextView txtSemester = (TextView) convertView.findViewById(R.id.txtSemester);
         TextView txtYear = (TextView) convertView.findViewById(R.id.txtYear);
-        TextView txtGrade = (TextView) convertView.findViewById(R.id.txtGrade);
         TextView txtStatus = (TextView) convertView.findViewById(R.id.txtStatus);
 
         txtModuleID.setText(module.id);
         txtModuleName.setText(module.name);
         txtSemester.setText(module.semester);
         txtYear.setText(module.year);
-        txtGrade.setText(module.grade);
         txtStatus.setText(module.status);
 
         return convertView;

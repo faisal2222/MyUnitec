@@ -64,20 +64,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:text="Grade"
-        android:id="@+id/lblGrade"
-        android:textColor="@color/colorPrimaryDark" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:id="@+id/txtGrade" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:text="Status:"
         android:id="@+id/lblStatus"
         android:textColor="@color/colorPrimaryDark" />

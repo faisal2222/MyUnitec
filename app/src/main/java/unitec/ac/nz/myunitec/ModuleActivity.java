@@ -44,7 +44,7 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
     private String lastName;
     private String username;
     private String programmeID;
-    private String prgrammeName;
+    private String programmeName;
     private ListView lstModule;
     private ArrayList<Module> modules;
     private ModuleAdpater moduleAdapter;
@@ -69,7 +69,9 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
         lastName = intent.getStringExtra("lastName");
         username = intent.getStringExtra("username");
         programmeID = intent.getStringExtra("programmeID");
-        prgrammeName = intent.getStringExtra("prgrammeName");
+        programmeName = intent.getStringExtra("programmeName");
+
+        setTitle(programmeName);
 
         new ModuleTask().execute(SERVER_URL, username, programmeID);
     }
@@ -87,7 +89,15 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent intent = new Intent(ModuleActivity.this, GradeActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("firstName", firstName);
+        intent.putExtra("lastName", lastName);
+        intent.putExtra("programmeID", programmeID);
+        intent.putExtra("programmeName", programmeName);
+        intent.putExtra("moduleID", modules.get(position).id);
+        intent.putExtra("moduleName", modules.get(position).name);
+        startActivity(intent);
     }
 
     private class ModuleTask extends AsyncTask<String, Void, Void> {
@@ -107,16 +117,27 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
                 try {
                     if (jsonResponseObject.getString("result").compareTo("true") == 0) {
                         JSONArray enrollments = jsonResponseObject.getJSONArray("modules");
-                        for (int index = 0; index < enrollments.length(); index++) {
-                            Module module = new Module(enrollments.optJSONObject(index).getString("id"),
-                                    enrollments.optJSONObject(index).getString("moduleName"),
-                                    enrollments.optJSONObject(index).getString("semester"),
-                                    enrollments.optJSONObject(index).getString("year"),
-                                    enrollments.optJSONObject(index).getString("grade"),
-                                    enrollments.optJSONObject(index).getString("status"));
-                            modules.add(module);
+                        if (enrollments.length() > 0) {
+                            for (int index = 0; index < enrollments.length(); index++) {
+                                Module module = new Module(enrollments.optJSONObject(index).getString("id"),
+                                        enrollments.optJSONObject(index).getString("moduleName"),
+                                        enrollments.optJSONObject(index).getString("semester"),
+                                        enrollments.optJSONObject(index).getString("year"),
+                                        enrollments.optJSONObject(index).getString("status"));
+                                modules.add(module);
+                            }
+                            moduleAdapter.notifyDataSetChanged();
+                        } else {
+                            CharSequence message = "No Enrollments";
+                            int duration = Toast.LENGTH_LONG;
+                            Toast toast = Toast.makeText(ModuleActivity.this, message, duration);
+                            toast.show();
+                            Intent intent = new Intent(ModuleActivity.this, ProgrammeActivity.class);
+                            intent.putExtra("username", username);
+                            intent.putExtra("firstName", firstName);
+                            intent.putExtra("lastName", lastName);
+                            startActivity(intent);
                         }
-                        moduleAdapter.notifyDataSetChanged();
                     } else {
                         CharSequence message = "Problem Communicating With Server";
                         int duration = Toast.LENGTH_LONG;

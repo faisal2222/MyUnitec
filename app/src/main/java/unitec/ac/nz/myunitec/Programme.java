@@ -1,9 +1,11 @@
 package unitec.ac.nz.myunitec;
 
+import java.io.Serializable;
+
 /**
  * Created by Faisal on 22/09/2016.
  */
-public class Programme {
+public class Programme implements Serializable {
 
     public String id;
     public String name;

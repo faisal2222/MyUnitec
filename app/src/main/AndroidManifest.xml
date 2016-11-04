@@ -19,7 +19,9 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ProgrammeActivity" />
-        <activity android:name=".ModuleActivity"></activity>
+        <activity android:name=".ModuleActivity" />
+        <activity android:name=".GradeActivity" />
+        <activity android:name=".ModuleEnrollment"></activity>
     </application>
 
 </manifest>

@@ -45,9 +45,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public void onClick(View v) {
         if (v == btnLogout) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            intent.putExtra("username", username);
-            intent.putExtra("firstName", firstName);
-            intent.putExtra("lastName", lastName);
             startActivity(intent);
         } else if (v == btnProgramme) {
             Intent intent = new Intent(MainActivity.this, ProgrammeActivity.class);
@@ -55,6 +52,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             intent.putExtra("firstName", firstName);
             intent.putExtra("lastName", lastName);
             startActivity(intent);
+        } else if (v == btnEnroll) {
+            Intent intent = new Intent(MainActivity.this, ModuleEnrollmentActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("firstName", firstName);
+            intent.putExtra("lastName", lastName);
+            startActivity(intent);
+        } else if (v == btnTimetable) {
+
         }
     }
 }

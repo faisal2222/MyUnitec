@@ -13,6 +13,11 @@ public class Module implements Serializable {
     public String year;
     public String status;
 
+    public Module(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Module(String id, String name, String semester, String year, String status) {
         this.id = id;
         this.name = name;

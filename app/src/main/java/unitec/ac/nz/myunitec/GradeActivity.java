@@ -38,7 +38,7 @@ public class GradeActivity extends AppCompatActivity implements OnClickListener,
     // use this for emulator
     static final String SERVER_URL = "https://10.0.2.2:8443/MyUnitecServer/webresources/activemodulegrades";
     // use this for network
-    //private static final String SERVER_URL = "https://192.168.1.67:8443/MyUnitecServer/webresources/activemodulegrades";
+    //private static final String SERVER_URL_1 = "https://192.168.1.67:8443/MyUnitecServer/webresources/activemodulegrades";
 
     private String firstName;
     private String lastName;
@@ -47,6 +47,8 @@ public class GradeActivity extends AppCompatActivity implements OnClickListener,
     private String programmeName;
     private String moduleID;
     private String moduleName;
+    private String semester;
+    private String year;
     private ListView lstGrade;
     private ArrayList<Grade> grades;
     private GradeAdapter gradeAdapter;
@@ -74,10 +76,12 @@ public class GradeActivity extends AppCompatActivity implements OnClickListener,
         programmeName = intent.getStringExtra("programmeName");
         moduleID = intent.getStringExtra("moduleID");
         moduleName = intent.getStringExtra("moduleName");
+        semester = intent.getStringExtra("semester");
+        year = intent.getStringExtra("year");
 
         setTitle(moduleName);
 
-        new GradeActivity.GradeTask().execute(SERVER_URL, username, moduleID);
+        new GradeActivity.GradeTask().execute(SERVER_URL, username, moduleID, semester, year);
     }
 
     @Override
@@ -120,6 +124,8 @@ public class GradeActivity extends AppCompatActivity implements OnClickListener,
                                 Grade grade = new Grade(results.optJSONObject(index).getString("assesment"),
                                         results.optJSONObject(index).getString("username"),
                                         results.optJSONObject(index).getString("moduleid"),
+                                        results.optJSONObject(index).getString("semester"),
+                                        results.optJSONObject(index).getString("year"),
                                         results.optJSONObject(index).getString("grade"));
                                 grades.add(grade);
                             }

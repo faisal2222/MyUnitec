@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     // use this for emulator
     private static final String SERVER_URL = "https://10.0.2.2:8443/MyUnitecServer/webresources/login";
     // use this for network
-    //private static final String SERVER_URL = "https://192.168.1.67:8443/MyUnitecServer/webresources/login";
+    //private static final String SERVER_URL_1 = "https://192.168.1.67:8443/MyUnitecServer/webresources/login";
 
     private EditText txtUsername;
     private EditText txtPassword;

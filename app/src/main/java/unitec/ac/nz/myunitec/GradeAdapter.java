@@ -25,10 +25,10 @@ public class GradeAdapter extends ArrayAdapter<Grade> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_grade, parent, false);
         }
 
-        TextView txtAssement = (TextView) convertView.findViewById(R.id.txtAssement);
+        TextView txtAssesment = (TextView) convertView.findViewById(R.id.txtAssesment);
         TextView txtGrade = (TextView) convertView.findViewById(R.id.txtGrade);
 
-        txtAssement.setText(grade.assement);
+        txtAssesment.setText(grade.assesment);
         txtGrade.setText(grade.grade);
 
         return convertView;

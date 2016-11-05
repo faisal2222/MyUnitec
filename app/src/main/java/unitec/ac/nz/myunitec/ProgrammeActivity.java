@@ -38,7 +38,7 @@ public class ProgrammeActivity extends AppCompatActivity implements OnClickListe
     // use this for emulator
     static final String SERVER_URL = "https://10.0.2.2:8443/MyUnitecServer/webresources/activeenrollment";
     // use this for network
-    //private static final String SERVER_URL = "https://192.168.1.67:8443/MyUnitecServer/webresources/activeenrollment";
+    //private static final String SERVER_URL_1 = "https://192.168.1.67:8443/MyUnitecServer/webresources/activeenrollment";
 
     private Button btnMenu;
     private ListView lstProgramme;

@@ -38,7 +38,7 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
     // use this for emulator
     static final String SERVER_URL = "https://10.0.2.2:8443/MyUnitecServer/webresources/activemodules";
     // use this for network
-    //private static final String SERVER_URL = "https://192.168.1.67:8443/MyUnitecServer/webresources/activemodules";
+    //private static final String SERVER_URL_1 = "https://192.168.1.67:8443/MyUnitecServer/webresources/activemodules";
 
     private String firstName;
     private String lastName;
@@ -97,6 +97,8 @@ public class ModuleActivity extends AppCompatActivity implements OnClickListener
         intent.putExtra("programmeName", programmeName);
         intent.putExtra("moduleID", modules.get(position).id);
         intent.putExtra("moduleName", modules.get(position).name);
+        intent.putExtra("semester", modules.get(position).semester);
+        intent.putExtra("year", modules.get(position).year);
         startActivity(intent);
     }
 

@@ -21,7 +21,8 @@
         <activity android:name=".ProgrammeActivity" />
         <activity android:name=".ModuleActivity" />
         <activity android:name=".GradeActivity" />
-        <activity android:name=".ModuleEnrollment"></activity>
+        <activity android:name=".ModuleEnrollmentActivity" />
+        <activity android:name=".TimeTableActivity"></activity>
     </application>
 
 </manifest>

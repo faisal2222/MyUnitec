@@ -8,15 +8,19 @@ import java.io.Serializable;
 
 public class Grade implements Serializable{
 
-    public String assement;
+    public String assesment;
     public String username;
     public String moduleid;
+    public String semester;
+    public String year;
     public String grade;
 
-    public Grade(String assement, String username, String moduleid, String grade) {
-        this.assement = assement;
+    public Grade(String assesment, String username, String moduleid, String semester, String year, String grade) {
+        this.assesment = assesment;
         this.username = username;
         this.moduleid = moduleid;
+        this.semester = semester;
+        this.year = year;
         this.grade = grade;
     }
 }

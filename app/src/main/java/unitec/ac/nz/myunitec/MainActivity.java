@@ -1,5 +1,6 @@
 package unitec.ac.nz.myunitec;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,7 +60,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             intent.putExtra("lastName", lastName);
             startActivity(intent);
         } else if (v == btnTimetable) {
-
+            Intent intent = new Intent(MainActivity.this, TimeTableActivity.class);
+            intent.putExtra("username", username);
+            intent.putExtra("firstName", firstName);
+            intent.putExtra("lastName", lastName);
+            startActivity(intent);
         }
     }
 }
